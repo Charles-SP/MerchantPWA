@@ -1,0 +1,51 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron hd pt-4 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>QR PROCESS - APPLY & COLLECT</b></h6>
+</div>
+<div class="container mb-4">
+    <div class="iconcontainer">
+        <div class="row" >
+            <form action="Welcome" method="get" id="welc" style="width:100%; text-align:center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="iconbox">
+                        <div class="iconbox-icon">
+                            <span class="fa fa-search-dollar"></span>
+                        </div>
+                        <div class="featureinfo">
+                            <h4 class="text-center">APPLY NOW</h4>
+                            <p class="text-center">
+                                Click on the Apply button below to initiate your SwitchPay application.
+                            </p>
+                        </div>
+                        <input type="submit" id="apply" style=" background-color: #212529;" value="APPLY" class="btn btn-success btn-lg mt-2" />
+                    </div>
+                </div>
+            </form>
+            <form action="Scan" method="get" id="scn" style="width:100%; text-align:center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="iconbox">
+                        <div class="iconbox-icon">
+                            <span class="fa fa-cart-plus"></span>
+                        </div>
+                        <div class="featureinfo">
+                            <h4 class="text-center">PAY & COLLECT</h4>
+                            <p class="text-center" style=" width:100%;">
+                                Click on Pay & Collect button below to process your SwitchPay transaction and collect your goods.
+                            </p>
+                        </div>
+                        <input type="submit" id="apply" style="background-color: #212529;" value="PAY & COLLECT" class="btn btn-success btn-lg mt-2" />
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>
+

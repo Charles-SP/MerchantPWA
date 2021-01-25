@@ -1,0 +1,33 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Invalid Transaction Amount</h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">Transaction Amount Invalid</h1>
+    </div>
+</div>
+
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h6 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">The amount you are trying to process does not match the authorised value of your application.  Please enter correct value or contact SwitchPay on <a href="tel:08161995008">08161995008</a> to determine the amount of your application.</b></h6>
+</div>
+<fieldset style="width:100%">
+    <!-- Text input-->
+    <input id="submit_handle" type="submit" style="display: none">
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            <input type="button" id="cancel" style=" width: 100%;" value="CANCEL" class="btn btn-success btn-lg mt-2" onclick="cancelclick();" />
+        </div>
+    </div>
+</fieldset>
+<script>
+
+
+    function cancelclick() {
+
+        window.location.href = "Cancelled"
+    };
+</script>

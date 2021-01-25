@@ -1,0 +1,133 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron  pt-3 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>@Model.SubscribedProductName.ToUpper() - APPLICATION</b></h6>
+</div>
+
+@if (Model.SubscribedProduct == 1)
+{
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Product Information</strong></h4>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center bg-dark pb-5">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left text-white">Instore Finance</h2>
+            <h4 class="float-right mb-5 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(@Model.FinanceAmount))</h4>
+            <!-- Linkedin -->
+            <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+
+else if (Model.SubscribedProduct == 2)
+{
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Product Information</strong></h4>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center pb-5">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left text-white">Layby</h2>
+            <h4 class="float-right mb-5 text-white">R @Model.Deposit deposit <br />R @Model.CurrencyFormat(Convert.ToDecimal(@Model.MonthlyPayment)) x @Model.Terms </h4>
+            <!-- Linkedin -->
+            <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+else if (Model.SubscribedProduct == 3)
+{
+    <div class="jumbotron text-center bg-dark pb-5" style="border-radius: 0px;">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left mr-2 text-white"><b>Subscribe</b></h2>
+            <h5 class="float-right mb-5 mr-2 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(@Model.Deposit)) <label style="font-size: 13px;">deposit</label> <br />R @Model.CurrencyFormat(Convert.ToDecimal(@Model.MonthlyPayment)) <label style="font-size: 13px; margin-left: 20px;"> x @Model.Terms</label></h5>
+            <!-- Linkedin -->
+            <a class="fa-lg p-2 m-2 li-ic"><i class="fab fa-website text-white"></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+<form class="form-horizontal" action="CustomerAdditionalInfo" method="get">
+    <fieldset>
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">FIRST NAME</label>
+            <div class="col-md-12">
+                <input id="name" name="firstName" type="text" placeholder="Enter your Name" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">SURNAME</label>
+            <div class="col-md-12">
+                <input id="surname" name="surname" type="text" placeholder="Enter your Surname" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">ID NUMBER</label>
+            <div class="col-md-12">
+                <input id="idNumber" name="IdNumber" type="text" placeholder="Enter your Id Number" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        @*<div class="form-group text-center">
+                <label class="font-weight-bold">MOBILE NUMBER</label>
+                <div class="col-md-12">
+                    <input id="bank" name="bank" type="text" placeholder="Enter your Mobile Number" class="form-control userInfo input-md" required>
+                </div>
+            </div>*@
+        <div class="form-group text-center">
+            <label class="userInfo text-center">
+                <b class="text-center"> WHO DO YOU BANK WITH </b>
+            </label>
+            <div class="col-md-12">
+                @Html.DropDownListFor(x => Model.BankID, new SelectList(Model.BankLookup.Select(a => new { Value = a.Id, Text = a.Name }), "Value", "Text", 1), "Select Bank...", new { @name = "selectedLevel", @class = "form-control text-tracked text-muted mb-2", @id = "ddStatus" })
+            </div>
+        </div>
+        <input id="submit_handle" type="submit" style="display: none">
+        <div class="form-group text-center">
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%;background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+<script>
+    $(document).ready(function () {
+        $("body").tooltip({
+            selector: "[data-toggle='tooltip']",
+            container: "body"
+        })
+            .popover({
+                selector: "[data-toggle='popover']",
+                container: "body",
+                html: true
+            });
+    });
+
+    $('body').on('click', function (e) {
+        $('[data-toggle=popover]').each(function () {
+            // hide any open popovers when the anywhere else in the body is clicked
+            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+                $(this).popover('hide');
+            }
+        });
+    });
+
+    function submitform() {
+        $('#submit_handle').click();
+    }</script>
+
+

@@ -1,0 +1,60 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron hd pt-4 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>IN-STORE FINANCE - APPLICATION</b></h6>
+</div>
+
+<div class="jumbotron text-center bg-dark pb-5" style="border-radius: 0px;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h2 class="lead float-left mr-2 text-white"><b>In-Store Finance</b></h2>
+        <h5 class="float-right mb-5 mr-2 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(Model.FinanceAmount))</h5>
+        <a class="fa-lg p-2 m-2 li-ic"><i></i></a>
+        <!-- Dribbble -->
+        <a class="fa-lg p-2 m-2 fb-ic pb-5"><i></i></a>
+    </div>
+</div>
+
+<form class="form-horizontal" action="CustomerInfo" method="post">
+    <fieldset style="width:100%">
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">FIRST NAME</label>
+            <div class="col-md-12">
+                <input id="name" name="name" type="text" placeholder="Enter your Name" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">SURNAME</label>
+            <div class="col-md-12">
+                <input id="surname" name="surname" type="text" placeholder="Enter your Surname" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group text-center">
+            <label class="font-weight-bold">ID NUMBER</label>
+            <div class="col-md-12">
+                <input id="idNumber" name="idNumber" type="text" placeholder="Enter your ID Number" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <label class="userInfo text-center">
+                <b class="text-center"> WHO DO YOU BANK WITH </b>
+            </label>
+            <div class="col-md-12">
+                @Html.DropDownListFor(x => Model.BankID, new SelectList(Model.BankLookup.Select(a => new { Value = a.Id, Text = a.Name }), "Value", "Text", 1), "Select Bank...", new { @name = "selectedLevel", @class = "form-control text-tracked text-muted mb-2", @id = "ddStatus" })
+            </div>
+        </div>
+        <input id="submit_handle" type="submit" style="display: none">
+        <div class="form-group text-center">
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%;background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+

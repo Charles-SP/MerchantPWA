@@ -1,0 +1,343 @@
+﻿body {
+}
+
+footer {
+    position: relative !important;
+    text-align: center !important;
+}
+
+#retry {
+    background-color: #4e565b;
+    border-color: #ef6624;
+    width: 100% !important;
+}
+
+.iconbox {
+    background: #ffffff;
+    background-color: #ffffff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 1px 20px 6px rgba(0, 0, 0, 0.16);
+    padding: 20px 25px;
+    text-align: right;
+    display: block;
+    margin-top: 60px;
+    margin-bottom: 15px;
+}
+
+.iconbox-icon {
+    background-color: #ed6a2b;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+    margin-top: -70px;
+}
+
+    .iconbox-icon span {
+        color: #fff;
+        font-size: 42px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 29px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+.featureinfo h4 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.featureinfo > p {
+    color: #000000;
+    font-size: 16px;
+    padding-top: 4px;
+    text-align: left;
+}
+
+.btn-default {
+    text-shadow: 0px 1px 0px #FFF;
+    background-image: linear-gradient(to bottom, #FFF 0px, #E0E0E0 100%);
+    background-repeat: repeat-x;
+    border-color: #CCC;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.15) inset, 0px 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+    .btn-default:hover,
+    .btn-default:focus {
+        background-color: #e0e0e0;
+        background-position: 0 -15px
+    }
+
+.jumbo-color {
+    background-color: #ffffff !important;
+}
+
+.big-Jumbo-color {
+    background-color: #4E565B !important;
+}
+
+
+
+#info_finance {
+    background-color: #4d555a;
+    color: white;
+}
+
+#cancel {
+    /*    width: 80% !important;*/
+    margin-top: 0px;
+    background-color: white;
+    border-color: #ed6a2b;
+    border-width: 2px;
+    border-radius: 7px;
+    width: 100% !important;
+    color: #ed6a2b;
+    width: 70% !important;
+}
+
+fieldset {
+    max-width: 900px !important;
+    margin: auto !important;
+    margin-bottom: 50px !important;
+}
+
+.jumbotron {
+    max-width: 900px !important;
+    margin: auto !important;
+    margin-bottom: 50px !important;
+}
+
+.hd {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+#proceed {
+    /*    width: 80% !important;*/
+    margin-top: 0px;
+    background-color: #4d555a;
+    border-color: #ed6a2b;
+    border-width: 2px;
+    border-radius: 7px;
+    width: 70% !important;
+}
+
+#apply {
+    /*    width: 80% !important;*/
+    margin-top: 0px;
+    background-color: #4d555a;
+    border-color: #ed6a2b;
+    border-width: 2px;
+    border-radius: 7px;
+    width: 100% !important;
+}
+
+#collect {
+    /*    width: 80% !important;*/
+    margin-top: 0px;
+    background-color: #4d555a;
+    border-color: #ed6a2b;
+    border-width: 2px;
+    border-radius: 7px;
+    width: 20% !important;
+}
+
+/*body {
+    background-image: url('file:///C:\Users\27716\Documents\SwitchPay\VirtualMerchant\Content\2020-09-25 16_44_33-Microsoft Edge.png');
+    background-color: #cccccc;
+}*/
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #4d555a;
+    width: 200px;
+    height: 200px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: relative;
+}
+
+.se-pre-con {
+    background: url('../img/switch.gif') center no-repeat rgba(0, 0, 170, 0.00);
+    display: none;
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: none;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 993px) {
+    #proceed {
+        /*    width: 80% !important;*/
+        margin-top: 0px;
+        background-color: #4d555a;
+        border-color: #ed6a2b;
+        border-width: 2px;
+        border-radius: 7px;
+        width: 100% !important;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100% !important;
+    }
+
+    footer {
+        position: absolute !important;
+        text-align: unset !important;
+    }
+
+    #apply {
+        width: 80% !important;
+    }
+
+    #collect {
+        width: 80% !important;
+    }
+
+
+
+
+    #apply {
+        /*    width: 80% !important;*/
+        margin-top: 0px;
+        background-color: #4d555a;
+        border-color: #ed6a2b;
+        border-width: 2px;
+        border-radius: 7px;
+        width: 100% !important;
+    }
+
+    .jumbo-color {
+        background-color: #ffffff !important;
+    }
+
+    .big-Jumbo-color {
+        background-color: #4E565B !important;
+    }
+
+    .input_Info {
+        height: 50px !important;
+    }
+
+    #collect {
+        /*    width: 80% !important;*/
+        margin-top: 0px;
+        background-color: #4d555a;
+        border-color: #ed6a2b;
+        border-width: 2px;
+        border-radius: 7px;
+        width: 100% !important;
+    }
+
+    #cancel {
+        /*    width: 80% !important;*/
+        margin-top: 0px;
+        background-color: white;
+        border-color: #ed6a2b;
+        border-width: 2px;
+        border-radius: 7px;
+        width: 100% !important;
+        color: #212529;
+        font-weight: 500;
+    }
+
+    .jumbotron {
+        max-width: 900px !important;
+        margin-bottom: 50px !important;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .se-pre-con {
+        background: url('../img/switch.gif') center no-repeat rgba(0, 0, 170, 0.00);
+        display: none;
+    }
+
+    .no-js #loader {
+        display: none;
+    }
+
+    .js #loader {
+        display: block;
+        position: absolute;
+        left: 100px;
+        top: 0;
+    }
+
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: none;
+    }
+
+    #retry {
+        background-color: #4e565b;
+        border-color: #ef6624;
+        width: 80% !important;
+    }
+}

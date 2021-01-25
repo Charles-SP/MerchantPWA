@@ -1,0 +1,149 @@
+﻿
+@model ApplicationModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Instore-finance </h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">R @Model.CurrencyFormat(@Model.GetPurchsePriceConverted)</h1>
+    </div>
+</div>
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">COLLECTION INFORMATION</b></h4>
+</div>
+<fieldset>
+    <!-- Text input-->
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <span class="float-left intent_label">Merchant:  </span>
+                    <span class="float-right  intent_info">@Model.Merchant</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <span class="float-left intent_label">Application Ref: </span>
+                    <span class="float-right  intent_info">@Model.ApplicationId</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <span class="float-left intent_label">Status: </span>
+                    <span class="float-right  intent_info">Pending Collection</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <span class="float-left intent_label">Mobile Number: </span>
+                    <span class=" float-right intent_info">@Model.MobileNumber</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="st se-pre-con" style="display:inline-block !important;"></div>*@
+    <div class=" lde center mt-3 mb-3 text-center" style="width:110px!important; height:110px!important">
+        <img src="~/img/switch.gif" />
+    </div>
+    <h5 class="mt-3redirect-label mt-4 text-center" style=" color: black;">We will soon redirect you to Authorise. Please use the OTP received by sms to Authorise the collection.</h5>
+</fieldset>
+<!-- Button -->
+<script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                window.location.href = 'AuthoriseCollect';
+
+        }, 6000);
+    });
+
+
+    $(function () {
+        $("#_proceed_intent").prop('disabled', true);
+        $("#_proceed_intent").css("background-color", "#929292")
+        $("#_proceed_intent").css("border-color", "#929292")
+        $("#_proceed_intent").css("color", "#ffffff")
+        $("#_proceed_intent").css("opacity", "0.5")
+    });
+
+    $("#terms_agree").on("change", function () {
+        var _sub1Selected = $("#terms_agree").prop('checked');
+        if (_sub1Selected) {
+            $("#_proceed_intent").prop('disabled', false);
+            $("#_proceed_intent").css("background-color", "#3e3e3e")
+            $("#_proceed_intent").css("border-color", "#f15a27")
+            $("#_proceed_intent").css("color", "#ffffff")
+            $("#_proceed_intent").css("opacity", "1")
+        }
+        else {
+            $("#_proceed_intent").prop('disabled', true);
+            $("#_proceed_intent").css("background-color", "#929292")
+            $("#_proceed_intent").css("border-color", "#929292")
+            $("#_proceed_intent").css("color", "#ffffff")
+            $("#_proceed_intent").css("opacity", "0.5")
+        }
+
+        function CurrencyJSFormat(value) {
+            debugger;
+            var amount = parseFloat(value, 2).toFixed(2);
+            var amountstr = amount.toString().split('.');
+            var x = "";
+            x = amountstr[0];
+            x = x.toString();
+            var lastThree = x.substring(x.length - 3);
+            var otherNumbers = x.substring(0, x.length - 3);
+            if (otherNumbers != '')
+                lastThree = ',' + lastThree;
+            var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            if (amountstr.length >= 2) {
+                res = "R" + res + "." + amountstr[1].toString();
+            }
+            else {
+                res = "R" + res + ".00";
+            }
+            return res;
+        }
+    });
+
+    @*$("#_proceed_intent").click(function () {
+        if ($('#radio-one').is(':checked')) {
+            $.ajax({
+                url: "@Url.Action("MarketingAccepted","Ammacom")",
+                type: "POST",
+                contentType: 'application/html',
+                success: function (result) {
+                    var url = '@Model.RedirectURL';
+                    window.location.href = url;
+                }
+            });
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("MarketingDeclined", "Ammacom")",
+                contentType: 'application/html',
+                success: function (result) {
+                    var url = '@Model.RedirectUrl';
+                    window.location.href = url;
+                }
+            });
+        }
+    });*@
+
+        @*$("#_proceed_intent").click(function (event) {
+            event.preventDefault();
+            var url = '@Model.RedirectUrl';
+            window.location.href = url;
+        });*@
+</script>
+
+

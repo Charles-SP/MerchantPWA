@@ -1,0 +1,26 @@
+﻿@model ApplicationModel
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/pre-loader.js"></script>
+<fieldset>
+    <!-- Text input-->
+    <div class="form-group" style="text-align:center;">
+        <div class="col-md-12 mb-5">
+            <h4>Application request in progress.</h4>
+        </div>
+        <div class="col-md-12 mb-5">
+            <h6>You will be redirected soon to proceed with your transaction.</h6>
+        </div>
+    </div>
+</fieldset>
+<div class=" st se-pre-con"></div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            window.location.href = '@Model.SecondaryURL';
+        }, 5000);
+    });
+
+
+</script>

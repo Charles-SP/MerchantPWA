@@ -1,0 +1,33 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Invalid ID Number</h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">Invalid ID Number has been provided.</h1>
+    </div>
+</div>
+
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">Please retry transaction.</b></h4>
+</div>
+<fieldset style="width:100%">
+    <!-- Text input-->
+    <input type="button" id="cancel" style=" width: 100%;" value="CANCEL" class="btn btn-success btn-lg mt-2" onclick="cancelclick();" />
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            <h6 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">There is no authorised application for this ID number for this merchant. Please contact SwitchPay on <a href="tel:0861995008">0861995008</a> to determine the status of your application.</b></h6>
+        </div>
+    </div>
+</fieldset>
+<script>
+
+
+    function cancelclick() {
+
+        window.location.href = "Cancelled"
+    };
+</script>

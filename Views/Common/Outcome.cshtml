@@ -1,0 +1,64 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.IsLayby == true)
+{
+    <div class="jumbotron pt-3 pb-3 bg-dark" style="border-radius: 0px;">
+        <h6 class="font-weight-light" style="color:white;"><b>OUTCOME</b></h6>
+    </div>
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>No Offer Available</strong></h4>
+
+    <h5 class="text-center ml-3 mr-3">No worries you can still purchase this product with the folowing options available:</h5>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center bg-dark ml-2 mr-2 pb-5">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="lead float-left text-white">Layby</h2>
+            <div class="col-sm-3 float-left" style="width:30%;"> @Html.DropDownListFor(x => Model.SelectedTerm, new SelectList(Model.TermsLookup.Select(a => new { Value = a.Id, Text = a.Name }), "Value", "Text", 1), "Term ...", new { @class = "form-control text-tracked text-muted mb-2", @id = "ddterm" })</div>
+            <h4 class="float-right mb-5 text-white">
+                R @Model.CurrencyFormat(Convert.ToDecimal(@Model.Deposit)) deposit <br /> R @Model.CurrencyFormat(Convert.ToDecimal(@Model.MonthlyPayment)) x <label class="sizedCustomerDataLeftLabel" id="term">@Html.DisplayFor(model => model.TermsLookup)</label>
+
+            </h4>
+        </div>
+        <br />
+        <ul class="mt-5 text-white col-12 text-left">
+            <li>No Interest</li>
+            <li>Small deposit</li>
+            <li>Your money is protected</li>
+        </ul>
+        <label class="mt-2 text-center text-white text-center"> NOT SURE?</label>
+        <p class="text-center text-white">Click<a href="https://switchpay.co.za"> here</a> to find out more.</p>
+    </div>
+    <fieldset>
+        <div class="col-md-12">
+            <input type="submit" id="proceed" style=" width: 100%;
+background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+        </div>
+    </fieldset>
+}
+else if (Model.IsLayby == false)
+{
+    <div class="jumbotron pt-3 pb-3 bg-dark" style="border-radius: 0px;">
+        <h6 class="font-weight-light" style="color:white;"><b>OUTCOME</b></h6>
+    </div>
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>No Offer Available</strong></h4>
+
+    <label class="text-center ml-3 mr-3">No offer is available at the moment. For any enquiries please<a href="mailto:contact@switchpay.co.za"> Email us</a> or <a href="tel:0861995008"> Call us now for any assistance.</a></label>
+
+    @*<fieldset>
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%;
+            background-color: #212529;" value="CLOSE" class="btn btn-success btn-lg mt-2" />
+            </div>
+        </fieldset>*@
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#ddterm").change(function () {
+            $("#term").text();
+        });
+    });
+</script>

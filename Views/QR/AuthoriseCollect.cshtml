@@ -1,0 +1,56 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Instore-finance </h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">R @Model.GetPurchsePriceConvertedToString</h1>
+    </div>
+</div>
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">COLLECTION AUTHORISATION</b></h4>
+</div>
+<form action="AuthoriseCollect" method="post">
+    <fieldset>
+        <label class="userInfo text-center font-weight-bold" style="margin-bottom:30px;">
+            An SMS was sent to your mobile number: @Model.MobileNumber
+            with the apply code required to proceed.
+        </label>
+        <!-- Text input-->
+        <div class="form-group">
+            <h6 class="userInfo text-center">
+                <b class="text-center">
+                    ENTER COLLECTION CODE
+                </b>
+            </h6>
+            <div class="col-md-12">
+                <input id="otp" name="otp" type="number" placeholder="Enter collection code received from SMS" class="form-control input-md userInfo input_Info" required="">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <label>Not received notification?<a style="color:#EF6624" id="resend" onclick="resend();"> Resend Notification</a></label>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            <input type="submit" id="proceed" style="width: 100%; background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+        </div>
+    </div>
+</form>
+<script>
+    function resend() {
+$.ajax({
+                url: "@Url.Action("ResendCollectionCode", "QR")",
+                type: "Get",
+                contentType: 'application/html'
+            });
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

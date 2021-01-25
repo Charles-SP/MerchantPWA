@@ -1,0 +1,44 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron hd pt-4 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>INSTORE-FINANCE - APPLICATION</b></h6>
+</div>
+<h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Product Information</strong></h4>
+<!-- Jumbotron -->
+<div class="jumbotron text-center bg-dark pb-5">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h4 class="indigo-text h5 mb-4 text-white">Product Information</h4>
+        <h2 class="lead float-left mr-2 text-white"><b>In-Store Finance </b></h2>
+        <h5 class="float-right mb-5 mr-2 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(Model.FinanceAmount))</h5>
+        <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+        <!-- Dribbble -->
+        <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+    </div>
+</div>
+<form action="CustomerInfo" method="get">
+    <fieldset style="width:100%">
+        <div class="form-group text-center">
+            <h6 class="userInfo text-center"><b class="text-center">ENTER MOBILE NUMBER</b></h6>
+            <div class="col-md-12">
+                <input id="mobile" name="mobile"  placeholder="Enter your mobile number" class="form-control input-md" required>
+            </div>
+        </div>
+        <p class="font-weight-normal pl-3 pr-3">Thank you for selecting the In Store-finance option for your product.</p>
+        <p class="font-weight-normal  pl-3 pr-3">
+            When you proceed you will be required to complete your personal information to confirm if you qualify for the purchase of the product on a loan from an NCA approved financial services provider.
+        </p>
+        <p class="font-weight-normal  pl-3 pr-3">During the process you will be directed to @Model.Provider that will process your loan application to complete your purchase.</p>
+        <div class="form-group text-center">
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%; background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+            </div>
+            <div class="col-md-12">
+                <input type="submit" id="cancel" style="width: 100%;color: #f26522;border-color: #f26522; border-width:2px; background-color:white;" value="CANCEL" class="btn btn-success btn-lg mt-2" />
+            </div>
+        </div>
+    </fieldset>
+</form>

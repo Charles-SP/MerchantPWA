@@ -1,0 +1,32 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron hd pt-4 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>INSTORE-FINANCE - APPLY </b></h6>
+</div>
+<div class="container">
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Please choose the Apply option to continue.</strong></h4>
+    <div class="iconcontainer">
+        <div class="row">
+            <form style="width:100%;"action="Welcome" method="get">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="iconbox">
+                        <div class="iconbox-icon">
+                            <span class="fa fa-search-dollar"></span>
+                        </div>
+                        <div class="featureinfo center">
+                            <h4 class="text-center">APPLY NOW</h4>
+                            <p class="text-center">
+                                Click on the Apply button below to initiate your SwitchPay application.
+                            </p>
+                            <input type="submit" id="apply" style="background-color: #212529;" value="APPLY" class="btn btn-success btn-lg mt-2 center text-center" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

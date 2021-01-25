@@ -1,0 +1,22 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Authorisation Error</h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">An error occured while authorising the collection.</h1>
+    </div>
+</div>
+
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">Please retry collection. If the error persists please contact SwitchPay on <a href="tel:0861995008">0861995008</a> for support on this issue.</b></h4>
+</div>
+<form action="AuthoriseCollect" method="get">
+    <fieldset class="text-center" style="width:100%">
+        <!-- Text input-->
+        <input type="submit" id="retry" value="RETRY" class="btn btn-success btn-lg mt-2" />
+    </fieldset>
+</form>

@@ -1,0 +1,47 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Instore-finance </h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">R @Model.FinanceAmountToString</h1>
+    </div>
+</div>
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">APPLICATION INFORMATION</b></h4>
+</div>
+<form action="CustomerInfo" method="get">
+    <fieldset style="width:100%">
+        <div class="form-group text-center">
+            <h6 class="userInfo text-center"><b class="text-center">ENTER MOBILE NUMBER</b></h6>
+            <div class="col-md-12">
+                <input id="mobile" name="mobile" type="number" placeholder="Enter your mobile number" class="form-control input-md input_Info" required>
+            </div>
+        </div>
+        <p class="font-weight-normal pl-3 pr-3">Thank you for selecting the In-store Finance as your payment option.</p>
+        <p class="font-weight-normal  pl-3 pr-3">
+            When you proceed you will be required to complete your personal information to confirm if you qualify for the purchase of the product on a loan from an NCA approved financial services provider.
+        </p>
+        <p class="font-weight-normal  pl-3 pr-3">When you click on Proceed you will be required to enter your personal information to confirm that you qualify for the payment option selected. Once confirmed, you will be directed to the relevant Credit/Service Provider in order to complete your application. </p>
+        <div class="form-group text-center">
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%; background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+            </div>
+            <div class="col-md-12">
+                <input type="submit" id="cancel" style="width: 100%;color: #212529;border-color: #f26522; border-width:2px; background-color:white;" value="CANCEL" class="btn btn-success btn-lg mt-2" onclick="cancelclick();" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<script>
+
+
+    function cancelclick() {
+
+        window.location.href = "Cancelled"
+    };
+</script>

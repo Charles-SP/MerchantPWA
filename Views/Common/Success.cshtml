@@ -1,0 +1,33 @@
+﻿@model ApplicationModel
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<div class="jumbotron hd pt-4 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;">
+        <b>
+            APPLY COMPLETED
+        </b>
+    </h6>
+</div>
+<fieldset>
+    <!-- Text input-->
+    <div class="form-group">
+        <div class="col-md-12">
+            <label>Thank you for utilising our services, the settlement for your goods / services purchased at @Model.Merchant has been processed. You will soon be redirected to complete your transaction details.</label>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            <input type="button" id="proceed" style=" width: 100%;background-color: #212529;" value="CLOSE" class="btn btn-success btn-lg mt-2" />
+        </div>
+    </div>
+</fieldset>
+
+<script type="text/javascript">
+    $('#proceed').click(function () {
+            window.location.href = '@Model.SecondaryURL';
+    });
+
+
+</script>

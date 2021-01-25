@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_CancelledLayout.cshtml";
+}
+
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+      
+        <h1 class=" mb-2 mt-4 mr-2 text-white"> This Transaction has been Cancelled</h1>
+    </div>
+</div>
+
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">The transaction  has been Cancelled.</b></h4>
+</div>
+<fieldset style="width:100%">
+    <!-- Text input-->
+    <input id="submit_handle" type="submit" style="display: none">
+
+
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            <img class="center mt-5 mb-5" style="width:120px!important; height:auto;" src="~/img/android-chrome-192x192.png" />
+        </div>
+    </div>
+</fieldset>
+<script>
+    function cancelclick() {
+
+        window.location.href = "Index"
+    };
+</script>

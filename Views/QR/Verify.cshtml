@@ -1,0 +1,64 @@
+﻿@model ApplicationModel;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="jumbotron hd bg-dark pt-4 pb-3" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>COLLECTION PAYMENT CONFIRMATION</b></h6>
+</div>
+<div class=".se-pre-con"></div>
+<div class="col-12 mt-5 ml-5">
+    <h5 class=" one mb-4" style="color:black;">
+        <span class="fa fa-lock-open text-dark"> </span>
+        R @Model.FinanceAmountToString
+    </h5>
+    <h5 class="two mb-4" style=" color: black;">
+        <span class="fa fa-check text-dark"> </span>
+        Processing Payment
+    </h5>
+</div>
+<div class=" redirect loader text-center"></div>
+<h5 class="redirect-label mt-4 text-center" style=" color: black;">
+    <span class="fa fa-check-circle text-dark"> </span>
+    You will be redirected shortly to complete the final steps of your application.
+</h5>
+<script type="text/javascript">
+    $(".one").hide();
+    $(".two").hide();
+    $(".three").hide();
+    $(".four").hide();
+    $(".redirect").hide();
+    $(".redirect-label").hide();
+    $(document).ready(function () {
+        $.ajax({
+            url: "@Url.Action("RequestCode", "QR")",
+            type: "GET",
+            contentType: 'json',
+            dataType: 'json',
+            success: function (result) {
+                if (result != "") {
+                    $(".one").show();
+                    $.ajax({
+                        url: "@Url.Action("MobileNotifyRequest", "QR")",
+                        type: "GET",
+                        contentType: 'json',
+                        dataType: 'json',
+                        success: function (result) {
+                            if (result != "") {
+                                $(".two").show();
+                                $(".three").show();
+                            }
+                            else if (result == false) {
+                                alert('Error Processing your Application')
+                            }
+                         }
+                    });
+                }
+                else if (result == false) {
+                    alert('Error Processing your Application')
+                }
+            }
+        });
+    });
+
+</script>

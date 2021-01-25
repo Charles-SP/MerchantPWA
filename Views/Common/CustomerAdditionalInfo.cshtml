@@ -1,0 +1,92 @@
+﻿@model ApplicationModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron pt-3 pb-3 bg-dark" style="border-radius: 0px;">
+    <h6 class="font-weight-light" style="color:white;"><b>@Model.SubscribedProductName.ToUpper() - APPLICATION</b></h6>
+</div>
+
+@if (Model.SubscribedProduct == 1)
+{
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Product Information</strong></h4>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center bg-dark  pb-5">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left text-white">Instore Finance</h2>
+            <h4 class="float-right mb-5 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(@Model.FinanceAmount))</h4>
+            <!-- Linkedin -->
+            <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+
+else if (Model.SubscribedProduct == 2)
+{
+    <h4 class="card-title h4 pb-2 text-center text-black-50"><strong>Product Information</strong></h4>
+    <!-- Jumbotron -->
+    <div class="jumbotron text-center bg-dark pb-5">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left text-white">Layby</h2>
+            <h4 class="float-right mb-5 text-white">
+                R @Model.Deposit deposit <br />R @Model.CurrencyFormat(Convert.ToDecimal(@Model.MonthlyPayment)) x @Model.Terms
+            </h4>
+
+            < !--Linkedin-- >
+            <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+else if (Model.SubscribedProduct == 3)
+{
+    <div class="jumbotron text-center bg-dark pb-5" style="border-radius: 0px;">
+        <!-- Card image -->
+        <div class="view overlay my-4">
+            <h2 class="card-text text-white pb-2">@Model.ProductName</h2>
+            <h4 class="indigo-text h5 mb-4 text-white">Subcription Information</h4>
+            <h2 class="lead float-left mr-2 text-white"><b>Subscribe</b></h2>
+            <h5 class="float-right mb-5 mr-2 text-white">R @Model.CurrencyFormat(Convert.ToDecimal(@Model.Deposit)) <label style="font-size: 13px;"> deposit</label> <br /> R @Model.CurrencyFormat(Convert.ToDecimal(@Model.MonthlyPayment))<label style="font-size: 13px; margin-left: 20px;"> x @Model.Terms</label></h5>
+            <!-- Linkedin -->
+            <a class="fa-lg p-2 m-2 li-ic"><i class=""></i></a>
+            <!-- Dribbble -->
+            <a class="fa-lg p-2 m-2 fb-ic pb-5"><i class=""></i></a>
+        </div>
+    </div>
+}
+<form class="form-horizontal" action="CustomerAdditionalInfo" method="post">
+    <fieldset>
+        <div class="form-group text-center">
+            <label class="userInfo text-center"><b class="text-center"> SALARY AFTER DEDUCTION</b></label>
+            <div class="col-md-12">
+                <input id="salary" name="salary" type="text" placeholder="Enter your your Salary after Deduction" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <label class="userInfo text-center">
+                <b class="text-center"> TOTAL EXPENSES </b>
+            </label>
+            <div class="col-md-12">
+                <input id="expenses" name="expenses" type="text" placeholder="Enter your Expenses" class="form-control userInfo input-md" required>
+            </div>
+        </div>
+       
+        <input id="submit_handle" type="submit" style="display: none">
+        <div class="form-group text-center">
+            <div class="col-md-12">
+                <input type="submit" id="proceed" style=" width: 100%;background-color: #212529;" value="PROCEED" class="btn btn-success btn-lg mt-2" />
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+
+

@@ -1,0 +1,105 @@
+﻿
+@model ApplicationModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<div class="modal fade" id="03" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">TRANSACTION FAILED</h4>
+            </div>
+            <div class="modal-body">
+                <p>Invalid Merchant. Please try again or contact provider.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" onclick="window.reload();" class="btn btn-primary">Retry</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="91" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">TRANSACTION FAILED</h4>
+            </div>
+            <div class="modal-body">
+                <p>Issuer or switch inoperative. Please try again or contact provider.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" onclick="window.reload();" class="btn btn-primary">Retry</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="96" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">TRANSACTION FAILED</h4>
+            </div>
+            <div class="modal-body">
+                <p> PS - Error getting code data. Please try again or contact provider.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" onclick="window.reload();" class="btn btn-primary">Retry</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron text-center big-Jumbo-color" style="border-radius: 0px; border-bottom:0px!important; margin-bottom:0px !important;">
+    <!-- Card image -->
+    <div class="view overlay my-4">
+        <h3 class="mr-2 text-white">Instore-finance </h3>
+        <h1 class=" mb-2 mt-4 mr-2 text-white">R @Model.GetPurchsePriceConvertedToString</h1>
+    </div>
+</div>
+<div class=" jumbo-color jumbotron hd pt-4 pb-3" style="border-radius: 0px; margin-bottom:0px !important; ">
+    <h4 class="text-center" style="color:#EF6624; font-weight:500;"><b style="font-size:18px; color:#EF6624;">COLLECTION CONFIRMATION</b></h4>
+</div>
+<!-- Text input-->
+<div class="form-group">
+    <div class="col-md-12">
+        <img class="center mt-5 mb-5" style="width:150px !important; height:auto;" src="~/img/switch.gif" />
+        <h4 style="text-align:center;">Processing Your Payment.</h4>
+    </div>
+</div>
+<!-- Button -->
+<script>
+    $(document).ready(function () {
+            $.ajax({
+                url: "@Url.Action("MobileNotifyRequest", "QR")",
+                type: "Get",
+                contentType: 'json',
+                dataType: 'json',
+                success: function (result) {
+                    if (result == "00") {
+                      window.location.href = "CollectionComplete"
+                    }
+                    else if (result == "96") {
+                        $('#96').modal('show');
+                    }
+                    else if (result == "91") {
+                        $('#91').modal('show');
+                    }
+                    else if (result == "03") {
+                        $('#03').modal('show');
+                    }
+                }
+            });
+   });
+</script>
+
+

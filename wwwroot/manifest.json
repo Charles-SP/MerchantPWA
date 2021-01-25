@@ -1,0 +1,20 @@
+{
+  "name": "Virtual Apply",
+  "short_name": "Apply",
+  "description": "Online customer product interface",
+  "icons": [
+    {
+      "src": "img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "theme_color": "#343a40",
+  "start_url": "/"
+}
